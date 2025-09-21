@@ -7,6 +7,7 @@ android {
     namespace = "com.example.ifunsoedmobile"
     compileSdk = 36
 
+
     defaultConfig {
         applicationId = "com.example.ifunsoedmobile"
         minSdk = 24
@@ -33,6 +34,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
 }
 
 dependencies {
