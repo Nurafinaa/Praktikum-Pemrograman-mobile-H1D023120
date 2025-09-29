@@ -10,7 +10,7 @@ Tugas : 1 <br>
 ## Pertemuan 3
 Berikut video/gif demo aplikasi yang memperlihatkan perpindahan halaman:
 
-![Demo Aplikasi](screenshot/PRAKTIKUM-PEMMOB2.mp4)
+![Demo Aplikasi](screenshot/pertemuan3.gif)
 
 ## Pertemuan 4
 ![Demo Aplikasi](screenshot/Tugas3Pertemuan4.gif)
