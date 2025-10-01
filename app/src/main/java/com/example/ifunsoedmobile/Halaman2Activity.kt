@@ -25,11 +25,13 @@ class Halaman2Activity : AppCompatActivity() {
         initListener()
     }
 
-    private fun initLayout() {
-        val phone = LayoutMenuBinding.bind(binding.layoutPhone.root)
-        val email = LayoutMenuBinding.bind(binding.layoutEmail.root)
-        val ig = LayoutMenuBinding.bind(binding.layoutIg.root)
-        val location = LayoutMenuBinding.bind(binding.layoutLocation.root)
+    private fun initLayout() = with(binding) {
+        val phone = LayoutMenuBinding.bind(layoutPhone.root)
+        val email = LayoutMenuBinding.bind(layoutEmail.root)
+        val ig = LayoutMenuBinding.bind(layoutIg.root)
+        val location = LayoutMenuBinding.bind(layoutLocation.root)
+        val buku = LayoutMenuBinding.bind(layoutBuku.root) // ✅ menu buku
+
 
         location.imgIcon.setImageResource(R.drawable.ic_location)
         location.tvLayout.setText(R.string.alamat)
@@ -42,13 +44,18 @@ class Halaman2Activity : AppCompatActivity() {
 
         phone.imgIcon.setImageResource(R.drawable.ic_phone)
         phone.tvLayout.setText(R.string.telepon)
+
+        buku.imgIcon.setImageResource(R.drawable.ic_book)
+        buku.tvLayout.setText(R.string.daftar_buku)
     }
 
-    private fun initListener() {
-        val phone = LayoutMenuBinding.bind(binding.layoutPhone.root)
-        val email = LayoutMenuBinding.bind(binding.layoutEmail.root)
-        val ig = LayoutMenuBinding.bind(binding.layoutIg.root)
-        val location = LayoutMenuBinding.bind(binding.layoutLocation.root)
+    private fun initListener() = with(binding) {
+        val phone = LayoutMenuBinding.bind(layoutPhone.root)
+        val email = LayoutMenuBinding.bind(layoutEmail.root)
+        val ig = LayoutMenuBinding.bind(layoutIg.root)
+        val location = LayoutMenuBinding.bind(layoutLocation.root)
+        val buku = LayoutMenuBinding.bind(layoutBuku.root)
+
 
         location.root.setOnClickListener {
             val gMapsIntentUri = "$gMapsUrl$latitude,$longitude".toUri()
@@ -56,11 +63,14 @@ class Halaman2Activity : AppCompatActivity() {
             startActivity(mapIntent.setPackage(packageMaps))
         }
 
+
         ig.root.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = getString(R.string.ig_himpunan).toUri()
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = getString(R.string.ig_himpunan).toUri()
+            }
             startActivity(intent)
         }
+
 
         email.root.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
@@ -69,6 +79,7 @@ class Halaman2Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         phone.root.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {
                 data = "tel:${getString(R.string.telepon)}".toUri()
@@ -76,7 +87,13 @@ class Halaman2Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnBack.setOnClickListener {
+
+        buku.root.setOnClickListener {
+            startActivity(Intent(this@Halaman2Activity, DaftarBukuActivity::class.java))
+        }
+
+
+        btnBack.setOnClickListener {
             finish()
         }
     }
