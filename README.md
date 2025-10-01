@@ -8,8 +8,6 @@ Tugas : 1 <br>
 ![Tampilan Utama](screenshot/ss.png)
 
 ## Pertemuan 3
-Berikut video/gif demo aplikasi yang memperlihatkan perpindahan halaman:
-
 ![Demo Aplikasi](screenshot/pertemuan3.gif)
 
 ## Pertemuan 4
